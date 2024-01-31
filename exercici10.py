@@ -3,7 +3,11 @@ Crear un arxiu on caldrà endevinar el número escollit pel programa entre 1 i 1
 un número, caldrà indicar si és més petit o més gran fins que encerti i el missatge haurà d’indicar que ha encertat. 
 Indicar també el número d’intents.
 '''
-n = 42
+import random
+
+n = random.randint(1, 100)
+# print(n)
+
 x = int(input('Endevina el número (1 al 100) '))
 
 while x != n:
