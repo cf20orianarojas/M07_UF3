@@ -4,5 +4,12 @@ Exemple: l’usuari marca 3, es mostra per pantalla: 3,6,9,12,15,18,21,24,27 i 3
 '''
 n = int(input('Número entre 1 i 10 '))
 
+result = ()
 for x in range(1, 11):
-    print(f'{n} x {x} = {n*x}')
+    res = n * x
+    result+=(res,)
+
+print(f'{result}')
+
+# for x in range(1, 11):
+#     print(f'{n} x {x} = {n*x}')
