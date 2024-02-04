@@ -22,10 +22,5 @@ def makeJSON():
     # crear
     with open('llibres.json', 'w') as file:
         json.dump(llibres, file, indent=2)
-    
-    # leer
-    with open('llibres.json', 'r') as file:
-        res = json.load(file)
-        print(json.dumps(res, indent=2)) # convert JSON
 
 makeJSON()
