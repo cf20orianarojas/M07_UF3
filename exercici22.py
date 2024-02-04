@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 def makeXML():
     arrel = ET.Element('students')
 
-    for i in range(5):
+    for i in range(1,6):
         ch = ET.SubElement(arrel, 'student')
         chName = ET.SubElement(ch, 'name')
         chSurname = ET.SubElement(ch, 'surname')
@@ -25,13 +25,16 @@ def makeXML():
 
         ch.set('type',f'student-{i}')
 
-        chName.text = 'Nombre{}'.format(i)
-        chSurname.text = 'Apellido{}'.format(i)
-        chEmail.text = 'email{}@example.com'.format(i)
-        chDni.text = 'DNI{}'.format(i)
-        
-        arrel.append(ch)
+        chName.text = f'Nombre {i}'
+        chSurname.text = f'Apellido {i}'
+        chEmail.text = f'email{i}@iticbcn.cat'
+        chDni.text = f'DNI {i}'
+    
+    ET.indent(arrel)
+    arbre = ET.ElementTree(arrel)
+    ET.dump(arrel)
+    arbre.write('students.xml')
 
     print('XML file')
 
-# makeXML()
+makeXML()
