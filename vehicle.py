@@ -4,6 +4,8 @@ Aquesta class ha de tindre: Constructor, Atributs (mínim 6), Getters/Setters
 Mètode de nom parts on es mostren, per pantalla, totes les dades (atributs) del vehicle.
 Afegir el mètode to_dict(self) a les dues classes per retornar l’objecte en format json
 '''
+import json
+
 class vehicle:
     # constructor de classe
     def __init__(self, marca, model, any, color, matricula, preu):
@@ -64,5 +66,11 @@ class vehicle:
         }
         return vehicle
     
+    def to_json(self):
+        vehicle_dict = self.to_dict()
+        vehicle_json = json.dumps(vehicle_dict, indent=2)
+        return vehicle_json
+    
 coche = vehicle('Ford', 'F-150', 2023, 'Azul', '123ABC', 25000.000)
 coche.parts()
+print(coche.to_json())
