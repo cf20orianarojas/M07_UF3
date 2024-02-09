@@ -1,6 +1,4 @@
-# paquet psycopg2
-import psycopg2
-from connection import *
+# Funció crear taula
 
 def crea_taula():
     # prioritat (t / f)
@@ -13,8 +11,4 @@ def crea_taula():
                     prioritat BOOLEAN NOT NULL,
                     estat VARCHAR(255) NOT NULL
     )''' 
-
-    # execute envia la query
-    connection.execute(query)
-    # fa efectius els canvis de la query.
-    conn.commit()
+    return query
