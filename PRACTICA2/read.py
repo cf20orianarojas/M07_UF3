@@ -1,4 +1,13 @@
 # funció read() que retorna query SELECT
-def read():
-    query = '''SELECT * FROM tascas;'''
-    return query
+from connection import *
+
+def read_query():
+    query = 'SELECT * FROM tascas;'
+    
+    connection.execute(query)
+    row = connection.fetchone()
+    print(row)
+    conn.commit()
+    #return query
+
+read_query()
