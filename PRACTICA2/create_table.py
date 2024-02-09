@@ -1,8 +1,6 @@
 # Funció crear taula
-
 def crea_taula():
     # prioritat (t / f)
-    # estado (estado actual de la tarea, como "pendiente", "en progreso" o "completa")
     query = '''CREATE TABLE IF NOT EXISTS tascas(
                     id_tasca SERIAL PRIMARY KEY,
                     nom_tasca VARCHAR(255) NOT NULL,
