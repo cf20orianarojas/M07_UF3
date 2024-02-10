@@ -7,31 +7,38 @@ from update import update_query
 from delete import delete_query
 
 try:
-    operacion = input("¿Qué operación de CRUD quieres realizar? (T: Crear tabla, C: Crear Registro R: Leer, U: Actualizar, D: Eliminar): ").upper()
+        
+    while True:
+        operacion = input("¿Qué operación de CRUD quieres realizar? (T: Crear tabla, C: Crear Registro R: Leer, U: Actualizar, D: Eliminar, Q: Salir): ").upper()
 
-    # operacions de CRUD 
-    operaciones = {
-        'T': crea_taula(),
-        'C': create_query(),
-        'R': read_query(),
-        'U': update_query(),
-        'D': delete_query()
-    }
+        if operacion == 'Q':
+            break
 
-    if operacion not in operaciones:
-        print('Operación no válida')
-    else:
-        # La query sera la correspondiente a la operación seleccionada
-        query = operaciones[operacion]
+        # operacions de CRUD 
+        operaciones = {
+            'T': crea_taula(),
+            'C': create_query(),
+            'R': read_query(),
+            'U': update_query(),
+            'D': delete_query()
+        }
 
-        print(query)
-    
-    # execute envia la query corresponent (table, create, read, update, delete)
-    connection.execute(query)
-    print(connection)
+        if operacion not in operaciones:
+            print('Operación no válida')
+        else:
+            # La query sera la correspondiente a la operación seleccionada
+            query = operaciones[operacion]
 
-    # fa efectius els canvis de la query.
-    conn.commit()
+            print(f'{query}\n')
+        
+        # execute envia la query corresponent (table, create, read, update, delete)
+        connection.execute(query)
+        
+        if operacion == 'R':
+            print(connection.fetchone())
+
+        # fa efectius els canvis de la query.
+        conn.commit()
 except (Exception, psycopg2.Error) as error:
     print('Error', error)
 finally:
